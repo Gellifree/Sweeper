@@ -1,9 +1,20 @@
 [gd_scene format=3 uid="uid://cdrsop36jmyhs"]
 
+[ext_resource type="Script" uid="uid://badqi7y3wmm0y" path="res://tile.gd" id="1_n3f48"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 
-[node name="Node3D" type="Node3D" unique_id=651923312]
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(0.9, 0.2, 0.9)
+
+[node name="Main" type="Node3D" unique_id=651923312]
+script = ExtResource("1_n3f48")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=494540431]
 transform = Transform3D(0.9, 0, 0, 0, 0.2, 0, 0, 0, 0.9, 0, 0, 0)
 mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2143113713]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=653902099]
+shape = SubResource("BoxShape3D_g4v7s")

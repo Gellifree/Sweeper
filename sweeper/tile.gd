@@ -22,5 +22,7 @@ func reveal(neighbor_mines: int):
 		material.albedo_color = Color(0.9, 0.8, 0.2)
 	else:
 		material.albedo_color = Color(0.9, 0.2, 0.2)
+	if is_mine:
+		material.albedo_color = Color(0.25, 0.02, 0.023, 1.0)
 	
 	mesh.material_override = material

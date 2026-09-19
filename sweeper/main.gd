@@ -7,6 +7,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			click_tile(event.position)
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_R:
+			game_board.reset_game()
 
 
 func click_tile(mouse_position: Vector2):
@@ -22,7 +25,8 @@ func click_tile(mouse_position: Vector2):
 	if result:
 		var collider = result["collider"]
 		var tile = collider.get_parent()
-		var neighbors = game_board.get_neighbors(tile.grid_position)
-		var mine_count = game_board.mine_count(tile.grid_position)
-		print("Szomszédos aknák: ", mine_count)
-		tile.reveal(mine_count)
+		#var neighbors = game_board.get_neighbors(tile.grid_position)
+		#var mine_count = game_board.mine_count(tile.grid_position)
+		#print("Szomszédos aknák: ", mine_count)
+		game_board.reveal_tile(tile.grid_position)
+		#tile.reveal(mine_count)

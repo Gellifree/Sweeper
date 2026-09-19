@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://r3yj3atuuaqx"]
 
 [ext_resource type="Script" uid="uid://bc4a11ea28gia" path="res://camera_rig.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cdrsop36jmyhs" path="res://tile.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://bt4l8t0ru16j7" path="res://game_board.gd" id="2_h2yge"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
 
@@ -22,3 +24,8 @@ transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57
 [node name="Camera3D" type="Camera3D" parent="CameraRig/CameraPitch" unique_id=1809229171]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
 current = true
+
+[node name="GameBoard" type="Node3D" parent="." unique_id=2061665393]
+script = ExtResource("2_h2yge")
+tile_scene = ExtResource("2_0xm2m")
+grid_size = 3

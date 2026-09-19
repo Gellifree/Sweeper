@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://r3yj3atuuaqx"]
+
+[ext_resource type="Script" uid="uid://bc4a11ea28gia" path="res://camera_rig.gd" id="1_ig7tw"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+
+[node name="Main" type="Node3D" unique_id=1818413246]
+
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=1134928830]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, 0, 0)
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=959769826]
+transform = Transform3D(0.8660254, 0.43301272, -0.25, 0, 0.49999997, 0.86602545, 0.5, -0.75, 0.4330127, 0, 7.7412157, 0)
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=88075411]
+script = ExtResource("1_ig7tw")
+
+[node name="CameraPitch" type="Node3D" parent="CameraRig" unique_id=809825221]
+transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig/CameraPitch" unique_id=1809229171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+current = true
